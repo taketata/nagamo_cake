@@ -1,25 +1,85 @@
-<h1>会員詳細</h1>
+<div class="container">
 
-<h4>姓カナ</h4>
-<%= @customer.last_name_kana %>
+  <div class="row">
 
-<h4>名 カナ</h4>
-<%= @customer.first_name_kana %>
+    <div class="col-md-5 mx-auto text-center">
 
-<h4>姓</h4>
-<%= @customer.last_name %>
+      <h1>会員詳細</h1>
 
-<h4>名</h4>
-<%= @customer.first_name %>
+      <table class="table table-bordered border-dark mt-5">
 
-<h4>メールアドレス</h4>
-<%= @customer.email %>
+        <tbody>
 
-<h4>電話番号</h4>
-<%= @customer.telephone_number %>
+          <tr>
 
-<h4>郵便番号</h4>
-<%= @customer.postal_code %>
+            <th>姓カナ</th>
 
-<h4>住所</h4>
-<%= @customer.address %>
+            <td><%= @customer.last_name_kana %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>名カナ</th>
+
+            <td><%= @customer.first_name_kana %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>姓</th>
+
+            <td><%= @customer.last_name %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>名</th>
+
+            <td><%= @customer.first_name %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>メールアドレス</th>
+
+            <td><%= @customer.email %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>電話番号</th>
+
+            <td><%= @customer.telephone_number %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>郵便番号</th>
+
+            <td><%= @customer.postal_code %></td>
+
+          </tr>
+
+          <tr>
+
+            <th>住所</th>
+
+            <td><%= @customer.address %></td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

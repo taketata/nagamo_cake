@@ -1,17 +1,47 @@
-<h1>商品新規登録画面</h1>
+<div class="container">
 
-<%= form_with model:@item,url: admin_items_path do |f| %>
+  <div class="row">
 
-  <h4>商品名</h4>
-  <%= f.text_field:name %>
+    <div class="w-100">
 
-  <h4>商品説明文</h4>
-  <%= f.text_area:introduction %>
+      <h1 class="text-center">商品新規登録画面</h1>
 
-  <h4>税抜き価格</h4>
-  <%= f.text_field:price %>
+      <%= form_with model:@item,url: admin_items_path do |f| %>
 
-  <%= f.submit "登録" %>
+        <div class="form-group pl-5">
 
-<% end %>
+          <label for="name">商品名</label><br>
 
+          <%= f.text_field:name,class:'form-control' %>
+
+        </div>
+
+        <div class="form-group pl-5">
+
+          <label for="introduction">商品説明文</label><br>
+
+          <%= f.text_area:introduction,class:'form-control' %>
+
+        </div>
+
+        <div class="form-group pl-5">
+
+          <label for="price">税抜き価格</label><br>
+
+          <%= f.text_field:price,class:'form-control' %>
+
+        </div>
+
+        <div class="form-group pl-5">
+
+          <%= f.submit "登録",class:'btn btn-sm btn-success' %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
