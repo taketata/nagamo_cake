@@ -1,2 +1,109 @@
-<h1>顧客編集画面</h1>
+<div class="container">
 
+  <div class="row mt-4 mx-auto">
+
+    <div class="col-8">
+
+      <h5 class="bg-light col-6 text-center">
+        <%= @customer.last_name %><%= @customer.first_name %> さんの会員情報編集
+        </h5>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-10">
+
+      <table class="table table-borderless mt-4">
+
+        <%= form_with model:@customer,url: admin_customer_path do |f| %>
+
+        <tbody>
+
+          <tr>
+
+            <td>会員ID</td>
+
+            <td><%= @customer.id %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>氏名</td>
+
+            <td><%= f.text_field:last_name %></td>
+
+            <td><%= f.text_field:first_name %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>フリガナ</td>
+
+            <td><%= f.text_field:last_name_kana %></td>
+
+            <td><%= f.text_field:first_name_kana %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>郵便番号</td>
+
+            <td><%= f.text_field:postal_code %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>住所</td>
+
+            <td><%= f.text_field:address,size:"40x1" %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>電話番号</td>
+
+            <td><%= f.text_field:telephone_number %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>メールアドレス</td>
+
+            <td><%= f.text_field:email %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>会員ステータス</td>
+
+            <td>有効</td>
+
+          </tr>
+
+          <tr class="text-center">
+
+            <th><%= f.submit "変更を保存",class:'btn btn-success' %></th>
+
+          </tr>
+
+        </tbody>
+
+        <% end %>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,44 +1,84 @@
 <div class="container">
 
+  <div class="row mt-4 mx-auto">
+
+    <div class="col-8">
+
+      <h5 class="text-center bg-light col-3">商品編集</h5>
+
+    </div>
+
+  </div>
+
   <div class="row">
 
-    <div class="col-5 mx-auto">
+    <div class="col-10 mt-4 mx-auto">
 
-      <h1 class="text-center">商品編集</h1>
+      <table class="table table-borderless">
 
-      <%= form_with model: @item,url: admin_item_path(@item.id) do |f| %>
+        <tbody>
 
-        <div class="form-group">
+          <%= form_with model:@item,url: admin_item_path(@item.id) do |f| %>
 
-        <label for="name">商品名</label><br>
+          <tr>
 
-        <%= f.text_field:name,class:'form-control' %>
+            <td>商品画像</td>
 
-        </div>
+            <td><%= f.attachment_field:image %></td>
 
-        <div class="form-group">
+          </tr>
 
-          <lebel for="intrduction">商品説明</lebel>
+          <tr>
 
-          <%= f.text_area:introduction,class:'form-control' %>
+            <td>商品名</td>
 
-        </div>
+            <td><%= f.text_field:name,class:'form-control',placeholder:'商品名' %></td>
 
-        <div class="form-group">
+          </tr>
 
-          <label for="price">税抜き価格</label>
+          <tr>
 
-          <%= f.text_field:price,class:'form-control' %>
+            <td>商品説明</td>
 
-        </div>
+            <td><%= f.text_area:introduction,class:'form-control',size: "40x6",placeholder:'ここに説明文を記述します' %></td>
 
-        <div class="form-group">
+          </tr>
 
-          <%= f.submit '保存',class:'btn btn-sm btn-success' %>
+          <tr>
 
-        </div>
+            <td>ジャンル</td>
 
-      <% end %>
+            <td>ジャンル </td>
+
+          </tr>
+
+          <tr>
+
+            <td>税抜価格</td>
+
+            <td><%= f.text_field:price,class:'form-control',placeholder:'1,000' %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>販売ステータス</td>
+
+            <td>販売中</td>
+
+          </tr>
+
+          <tr class="text-center">
+
+            <td><%= f.submit "変更を保存",class:'btn btn-success btn-lg' %></td>
+
+          </tr>
+
+          <% end %>
+
+        </tbody>
+
+      </table>
 
     </div>
 

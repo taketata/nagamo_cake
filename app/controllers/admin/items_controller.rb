@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
@@ -22,15 +22,19 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_items_path
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to admin_item_path(item.id)
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name,:introduction,:price)
+    params.require(:item).permit(:name,:introduction,:price,:image)
+  end
+
+  def genre_params
+    params.require(:genre).permit(:name)
   end
 
 end

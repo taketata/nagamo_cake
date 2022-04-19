@@ -1,18 +1,32 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row mt-4 mx-auto">
 
-    <div class="col-md-5 mx-auto">
+    <div class="col-6">
 
-      <h1 class="text-center">会員一覧</h1>
+      <h5 class="bg-light col-4 text-center">会員一覧</h5>
+
+     </div>
+
+  </div>
+
+  <div class="row mx-auto mt-3">
+
+    <div class="col-10">
 
       <table class="table">
 
         <thead>
 
-          <tr>
+          <tr class="table-secondary">
 
-            <th>名前</th>
+            <th>会員ID</th>
+
+            <th>氏名</th>
+
+            <th>メールアドレス</th>
+
+            <th>ステータス</th>
 
           </tr>
 
@@ -24,11 +38,17 @@
 
             <tr>
 
-              <td><%= customer.last_name %></td>
+              <td><%= customer.id %></td>
+
+              <td>
+                <%= link_to admin_customer_path(customer.id),class:'border-bottom border-dark text-dark',method: :get do %>
+                  <%= customer.last_name %>
+                <% end %>
+              </td>
 
               <td><%= customer.first_name %></td>
 
-              <td><%= link_to "詳細",admin_customer_path(customer.id),class:'btn btn-sm btn-info' %></td>
+              <td>有効</td>
 
             </tr>
 
@@ -39,6 +59,8 @@
       </tabel>
 
     </div>
+
+    <%= paginate @customers %>
 
   </div>
 

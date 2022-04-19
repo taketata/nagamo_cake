@@ -1,47 +1,85 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row mt-4 mx-auto">
 
-    <div class="w-100">
+    <div class="col-8">
 
-      <h1 class="text-center">商品新規登録画面</h1>
+      <h5 class="bg-light col-4 text-center">商品新規登録画面</h5>
+
+    </div>
+
+  </div>
+
+    <div class="col-10 mt-4 mx-auto">
 
       <%= form_with model:@item,url: admin_items_path do |f| %>
 
-        <div class="form-group pl-5">
+        <div class="form-group row">
 
-          <label for="name">商品名</label><br>
+          <label for="image" class="col-3 text-center">商品画像</label>
 
-          <%= f.text_field:name,class:'form-control' %>
+          <div class="col-6">
 
-        </div>
+            <%= f.attachment_field:image %>
 
-        <div class="form-group pl-5">
-
-          <label for="introduction">商品説明文</label><br>
-
-          <%= f.text_area:introduction,class:'form-control' %>
+          </div>
 
         </div>
 
-        <div class="form-group pl-5">
+        <div class="form-group row">
 
-          <label for="price">税抜き価格</label><br>
+          <label for="name" class="col-3 text-center">商品名</label><br>
 
-          <%= f.text_field:price,class:'form-control' %>
+          <div class="col-6">
+            <%= f.text_field:name,class:'form-control',placeholder:'商品名' %>
+          </div>
 
         </div>
 
-        <div class="form-group pl-5">
+        <div class="form-group row">
 
-          <%= f.submit "登録",class:'btn btn-sm btn-success' %>
+          <label for="introduction" class="col-3 text-center">商品説明文</label><br>
+
+          <div class="col-6">
+
+            <%= f.text_area:introduction,class:'form-control',size: "40x6",placeholder:'ここに説明文を記述します' %>
+
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label for="name" class="col-3 text-center">ジャンル</label>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label for="price" class="col-3 text-center">税抜き価格</label><br>
+
+          <div class="col-6">
+
+            <%= f.text_field:price,class:'form-control',placeholder:'1,000' %>
+
+          </div>
+
+          <p>円</p>
+
+        </div>
+
+        <div class="form-group row">
+
+          <div class="col-5 d-grid gap-2 mx-auto">
+
+            <%= f.submit "新規登録",class:'btn btn-success btn-lg' %>
+
+          </div>
 
         </div>
 
       <% end %>
 
     </div>
-
-  </div>
 
 </div>

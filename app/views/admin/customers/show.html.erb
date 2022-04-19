@@ -1,66 +1,52 @@
 <div class="container">
 
+  <div class="row mt-4 mx-auto">
+
+    <div class="col-8">
+
+      <h5 class="bg-light col-6 text-center">
+        <%= @customer.last_name %><%= @customer.first_name %> さんの会員詳細
+        </h5>
+
+    </div>
+
+  </div>
+
   <div class="row">
 
-    <div class="col-md-5 mx-auto text-center">
+    <div class="col-6">
 
-      <h1>会員詳細</h1>
-
-      <table class="table table-bordered border-dark mt-5">
+      <table class="table table-borderless mt-4">
 
         <tbody>
 
           <tr>
 
-            <th>姓カナ</th>
+            <td>会員ID</td>
 
-            <td><%= @customer.last_name_kana %></td>
-
-          </tr>
-
-          <tr>
-
-            <th>名カナ</th>
-
-            <td><%= @customer.first_name_kana %></td>
+            <td><%= @customer.id %></td>
 
           </tr>
 
           <tr>
 
-            <th>姓</th>
+            <td>氏名</td>
 
-            <td><%= @customer.last_name %></td>
-
-          </tr>
-
-          <tr>
-
-            <th>名</th>
-
-            <td><%= @customer.first_name %></td>
+            <td><%= @customer.last_name %> <%= @customer.first_name %></td>
 
           </tr>
 
           <tr>
 
-            <th>メールアドレス</th>
+            <td>フリガナ</td>
 
-            <td><%= @customer.email %></td>
-
-          </tr>
-
-          <tr>
-
-            <th>電話番号</th>
-
-            <td><%= @customer.telephone_number %></td>
+            <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
 
           </tr>
 
           <tr>
 
-            <th>郵便番号</th>
+            <td>郵便番号</td>
 
             <td><%= @customer.postal_code %></td>
 
@@ -68,15 +54,56 @@
 
           <tr>
 
-            <th>住所</th>
+            <td>住所</td>
 
             <td><%= @customer.address %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>電話番号</td>
+
+            <td><%= @customer.telephone_number %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>メールアドレス</td>
+
+            <td><%= @customer.email %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>会員ステータス</td>
+
+            <td>有効</td>
 
           </tr>
 
         </tbody>
 
       </table>
+
+
+    </div>
+
+  </div>
+
+  <div class="row text-center mb-5">
+
+    <div class="col-4">
+
+      <%= link_to "編集する",edit_admin_customer_path(@customer.id),class:'btn btn-success' %>
+
+    </div>
+
+    <div class="col-3">
+
+      <%= link_to "注文履歴一覧を見る",admin_customer_path(@customer.id),class:'btn btn-primary' %>
 
     </div>
 

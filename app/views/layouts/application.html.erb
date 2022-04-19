@@ -12,11 +12,15 @@
 
   <body class="d-flex flex-column vh-100">
 
-    <header>
+    <header class="border-dark border-bottom">
 
       <nav class="navbar navbar-expand-lg navbar-light">
 
         <div class="container">
+
+          <a clss="navber-brand" href="/">
+            <p class="text-white bg-dark">nagano_cake</p>
+          </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,5 +84,6 @@
     </header>
 
     <%= yield %>
+    <footer class="border-dark border-top"></footer>
   </body>
 </html>
