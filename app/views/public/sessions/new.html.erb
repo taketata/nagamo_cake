@@ -1,26 +1,87 @@
-<h2>Log in</h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="row mt-4 mx-auto">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="col-8">
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <h5 class="text-center bg-light col-3">ログイン</h5>
+
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "public/shared/links" %>
+  <div class="row mt-4 mx-auto">
+
+    <div class="col-8">
+
+      <h7 class="text-center bg-light col-7">会員の方はこちらからログイン</h7>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-4">
+
+    <div class="col-8 mx-auto">
+
+      <table class="table table-borderless">
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <tbody>
+
+          <tr>
+
+            <td>メールアドレス</td>
+
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control',placeholder:'sample@sample.com' %></td>
+
+          </tr>
+
+          <tr>
+
+            <td>パスワード</td>
+
+            <td><%= f.password_field :password, autocomplete: "current-password",class:'form-control' %></td>
+
+          </tr>
+
+          <tr class="text-strat">
+
+            <td></td>
+
+            <td><%= f.submit "ログイン",class:'btn btn-primary' %></td>
+
+          </tr>
+
+        </tbody>
+
+        <% end %>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row　mt-4">
+
+    <div class="col-8">
+
+      <h7 class="text-center bg-light col-3">会員登録がお済みではない方</h7>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-3 mb-5">
+
+    <div class="col-9 mx-auto">
+
+      <p class="col-7 text-center"><%= render "public/shared/links" %>から新規登録を行ってください。</p>
+
+    </div>
+
+  </div>
+
+</div>

@@ -2,6 +2,16 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
+    get 'addresses' => 'addresses#index'
+
+    get 'addresses/:id/edit' => 'addresses#edit',as:'edit_address'
+
+    post 'addresses' => 'addresses#create'
+
+    patch 'addresses/:id' => 'addresses#update',as:'update_address'
+
+    delete 'addresses/:id' => 'addresses#destroy',as:'destroy_address'
+
     root to: 'homes#top'
 
     get 'about' => 'homes#about'
@@ -14,7 +24,7 @@ Rails.application.routes.draw do
 
     get 'customers/edit' => 'customers#edit'
 
-    patch 'customers' => 'customers#update'
+    patch 'customers/edit' => 'customers#update'
 
   end
 
