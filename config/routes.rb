@@ -2,6 +2,32 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
+    post 'orders' => 'orders#create'
+
+    get 'orders/new' => 'orders#new'
+
+    get 'orders/confirm' => 'orders#confirm'
+
+    get 'orders/thanks' => 'orders#thanks'
+
+    get 'orders' => 'orders#index'
+
+    get 'orders/:id' => 'orders#show'
+
+    delete 'cart_items/empty' => 'cart_items#empty',as:'empty_cart_item'
+
+    delete 'cart_items/:id' => 'cart_items#destroy',as:'destroy_cart_item'
+
+    patch 'cart_items/:id' => 'cart_items#update',as:'update_cart_item'
+
+    post 'cart_items' => 'cart_items#create'
+
+    get 'cart_items' => 'cart_items#index'
+
+    get 'items/:id' => 'items#show',as:'item'
+
+    get 'items' => 'items#index'
+
     get 'addresses' => 'addresses#index'
 
     get 'addresses/:id/edit' => 'addresses#edit',as:'edit_address'

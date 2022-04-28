@@ -1,0 +1,120 @@
+<div class="container">
+
+  <div class="row mt-4">
+
+    <div class="col-1"></div>
+
+    <h5 class="text-center bg-light col-3 mx-0">ショッピングカート</h5>
+
+    <div class="col-4"></div>
+
+    <div class="col-3 mx-0">
+
+      <%= link_to "カートを空にする",empty_cart_item_path,class:'btn btn-danger',method: :delete %>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-10 mt-2 mx-auto">
+
+      <table class="table table-bordered">
+
+        <thead>
+
+          <tr class="table-secondary">
+
+            <th>商品名</th>
+
+            <th>単価(税込)</th>
+
+            <th>数量</th>
+
+            <th>小計</th>
+
+            <th></th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+        <% @cart_items.each do |cart_item| %>
+
+          <tr>
+
+            <td><%= cart_item.item.name %></td>
+
+            <td><%= cart_item.item.add_tax_price.to_s(:delimited)  %></td>
+
+            <td>
+              <%= form_with model: cart_item, url: update_cart_item_path(cart_item.id), method: :patch do |f| %>
+                <%= f.select :amount,*[1..9],{include_blank: '個数選択'},{id: "amount"} %>
+                <%= f.submit "変更",class:'btn btn-success btn-sm' %>
+              <% end %>
+            </td>
+
+            <td><%= cart_item.sum_of_price.to_s(:delimited) %></td>
+
+            <td class="text-center"><%= link_to "削除する",destroy_cart_item_path(cart_item.id),class:'btn btn-danger',method: :delete %></td>
+
+          </tr>
+
+        <% end %>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-2">
+
+    <div class="col-2"></div>
+
+    <div class="col-3">
+
+      <%= link_to "買い物を続ける",items_path,class:'btn btn-primary' %>
+
+    </div>
+
+    <div class="col-3"></div>
+
+    <div class="col-3">
+
+      <table class="table table-bordered">
+
+        <tbody>
+
+          <tr>
+
+            <th class="table-secondary">合計金額</th>
+
+            <td><%= @total.floor.to_s(:delimited) %></td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-4 mb-5">
+
+    <div class="col-3 mx-auto">
+
+      <%= link_to "情報入力に進む",items_path,class:'btn btn-success' %>
+
+    </div>
+
+  </div>
+
+</div>
