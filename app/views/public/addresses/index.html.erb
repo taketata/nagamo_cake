@@ -10,7 +10,7 @@
 
   </div>
 
-  <%= form_with model:@address do |f| %>
+  <%= form_with model:@address,url: addresses_path,method: :post do |f| %>
 
   <div class="row mt-5 ml-3">
 

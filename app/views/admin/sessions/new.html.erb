@@ -1,12 +1,12 @@
 <div class="container">
 
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="row">
 
     <div class="col-11 mx-auto mt-5">
 
       <h5 class="text-center bg-light col-3">管理者ログイン</h5>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="text-center mt-5">
 
@@ -14,7 +14,7 @@
 
             <label for="emai" class="col-5">メールアドレス</label>
 
-            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'col-6 form-control' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'col-6 form-control',placeholder:'sample@sample.com' %>
 
           </div>
 
@@ -27,20 +27,26 @@
 
           </div>
 
-          <div class="actions mt-5 d-grid gap-2 col-11">
-
-            <%= f.submit "ログイン",class:'btn btn-primary' %>
-
-          </div>
-
         </div>
-
-      <% end %>
 
       <%= render "admin/shared/links" %>
 
     </div>
 
   </div>
+
+  <div class="row mb-5">
+
+    <div class="col-5"></div>
+
+    <div class="actions mt-5 d-grid gap-2 col-2">
+
+      <%= f.submit "ログイン",class:'btn btn-primary btn-block' %>
+
+    </div>
+
+  </div>
+
+  <% end %>
 
 </div>

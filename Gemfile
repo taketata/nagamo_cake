@@ -65,3 +65,5 @@ gem "refile-mini_magick"
 gem 'pry-rails'
 
 gem 'jquery-turbolinks'
+
+gem 'enum_help'

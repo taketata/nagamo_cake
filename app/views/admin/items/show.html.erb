@@ -59,7 +59,13 @@
 
             <td>販売ステータス</td>
 
-            <td>販売中</td>
+            <td>
+              <% if @item.is_active == true %>
+                <p class="text-success">販売中</p>
+              <% else %>
+                <p class="text-muted">販売停止中</p>
+              <% end %>
+            </td>
 
           </tr>
 

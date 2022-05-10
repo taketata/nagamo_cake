@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
     get 'orders/new' => 'orders#new'
 
-    get 'orders/confirm' => 'orders#confirm'
+    post 'orders/confirm' => 'orders#confirm'
 
     get 'orders/thanks' => 'orders#thanks'
 
-    get 'orders' => 'orders#index'
+    get 'orders/index' => 'orders#index'
 
-    get 'orders/:id' => 'orders#show'
+    get 'orders/:id' => 'orders#show',as:'order'
 
     delete 'cart_items/empty' => 'cart_items#empty',as:'empty_cart_item'
 
@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+
+    resources:orders,only:[:show,:update]
 
     resources:customers,only:[:index,:show,:edit,:update]
 
