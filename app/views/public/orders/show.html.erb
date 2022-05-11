@@ -72,7 +72,7 @@
 
             <th class="table-secondary">商品合計</th>
 
-            <td></td>
+            <td><%= @total.round.to_s(:delimited) %></td>
 
           </tr>
 
@@ -136,7 +136,7 @@
 
             <td><%= order_detail.amount %></td>
 
-            <td></td>
+            <td><%= order_detail.sum_of_price.to_s(:delimited) %></td>
 
           </tr>
 

@@ -20,7 +20,7 @@
 
           <tr class="table-secondary">
 
-            <th>商品名</th>
+            <th class="col-5">商品名</th>
 
             <th>単価(税込)</th>
 
@@ -38,7 +38,7 @@
 
           <tr>
 
-            <td><%= cart_item.item.name %></td>
+            <td><%= attachment_image_tag cart_item.item,:image, width:'15%', format: 'jpeg' %><%= cart_item.item.name %></td>
 
             <td><%= cart_item.item.add_tax_price.to_s(:delimited)  %></td>
 
@@ -129,7 +129,7 @@
         <%= f.hidden_field :name,:value => @order.name %>
         <%= f.hidden_field :postage,:value => @order.postage %>
         <%= f.hidden_field :total_payment,:value => @order.total_payment %>
-        <%= f.submit "注文を確定する" %>
+        <%= f.submit "注文を確定する",class:'btn btn-success btn-block' %>
       <% end %>
 
     </div>

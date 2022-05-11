@@ -1,8 +1,8 @@
 <div class="container">
 
-  <div class="row mt-5">
+  <div class="row mt-5 mb-5">
 
-    <div class="col-2"></div>
+    <div class="col-1"></div>
 
     <div class="col-4">
 
@@ -10,9 +10,9 @@
 
      </div>
 
-    <div class="col-5">
+    <div class="col-6 ml-3">
 
-      <%= @item.name %><br>
+      <strong><%= @item.name %></strong><br>
 
       <%= @item.introduction %><br>
 
@@ -22,11 +22,22 @@
 
         <%= f.hidden_field :item_id,:value => @item.id %>
 
+        <div class="form-inline mt-5">
+
+        <div class="col-5 mt-3">
+
         <%= f.select :amount,*[1..9],{include_blank: '個数選択'},{id: "amount",class: 'form-control'} %>
 
-        <%= f.submit "カートに入れる",calss:'btn btn-success' %>
+        </div>
+
+        <div class="col-4 mt-3">
+        <%= f.submit "カートに入れる",class:'btn btn-success' %>
+        </div>
+
+        </div>
 
       <% end %>
+
     </div>
 
   </div>

@@ -4,7 +4,9 @@
 
     <div class="col-2"></div>
 
-    <h4 class="col-3">商品一覧</h4>
+    <h4>商品一覧</h4>
+
+    <p>(全<%= @count %>件)</p>
 
   </div>
 
@@ -28,7 +30,7 @@
 
           <% end %>
 
-          ¥<%= item.price %>
+          ¥<%= item.price.to_s(:delimited) %>
 
         </div>
 

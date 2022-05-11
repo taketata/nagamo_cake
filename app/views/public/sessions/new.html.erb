@@ -1,76 +1,58 @@
 <div class="container">
 
-  <div class="row mt-4 mx-auto">
+  <div class="row mt-4">
 
-    <div class="col-8">
+    <div class="col-1"></div>
 
-      <h5 class="text-center bg-light col-3">ログイン</h5>
-
-    </div>
-
-  </div>
-
-  <div class="row mt-4 mx-auto">
-
-    <div class="col-8">
-
-      <h7 class="text-center bg-light col-7">会員の方はこちらからログイン</h7>
-
-    </div>
+    <h5 class="text-center bg-light col-2">ログイン</h5>
 
   </div>
 
   <div class="row mt-4">
 
-    <div class="col-8 mx-auto">
+    <div class="col-1"></div>
 
-      <table class="table table-borderless">
+    <h7 class="text-center bg-light col-4 ml-3">会員の方はこちらからログイン</h7>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  </div>
 
-        <tbody>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <tr>
+  <div class="row mt-3">
 
-            <td>メールアドレス</td>
+    <div class="col-8 form-inline mx-auto">
 
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control',placeholder:'sample@sample.com' %></td>
+      <%= f.label :email,"メールアドレス",class:'col-4' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control col-8',placeholder:'sample@sample.com' %>
 
-          </tr>
+    </div>
 
-          <tr>
+    <div class="col-8 form-inline mx-auto mt-3">
 
-            <td>パスワード</td>
-
-            <td><%= f.password_field :password, autocomplete: "current-password",class:'form-control' %></td>
-
-          </tr>
-
-          <tr class="text-strat">
-
-            <td></td>
-
-            <td><%= f.submit "ログイン",class:'btn btn-primary' %></td>
-
-          </tr>
-
-        </tbody>
-
-        <% end %>
-
-      </table>
+      <%= f.label :password,"パスワード",class:'col-4' %>
+      <%= f.password_field :password, autocomplete: "current-password",class:'form-control col-8' %>
 
     </div>
 
   </div>
 
-  <div class="row　mt-4">
+  <div class="row mt-5">
 
-    <div class="col-8">
+    <div class="col-3 mx-auto">
 
-      <h7 class="text-center bg-light col-3">会員登録がお済みではない方</h7>
+      <%= f.submit "ログイン",class:'btn btn-primary btn-block' %>
 
     </div>
+
+  </div>
+
+  <% end %>
+
+  <div class="row mt-5">
+
+    <div class="col-1"></div>
+
+      <h7 class="text-center bg-light col-3 ml-3">会員登録がお済みではない方</h7>
 
   </div>
 
