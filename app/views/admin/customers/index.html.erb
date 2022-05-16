@@ -48,7 +48,13 @@
 
               <td><%= customer.first_name %></td>
 
-              <td>有効</td>
+              <td>
+              <% if customer.is_active == false %>
+                <p class="text-success">有効</p>
+              <% else %>
+                <p class="text-muted">退会</p>
+              <% end %>
+              </td>
 
             </tr>
 

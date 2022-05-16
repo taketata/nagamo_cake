@@ -10,86 +10,84 @@
 
   </div>
 
-  <div class="row">
+  <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
 
-    <div class="col-6 mt-4 mx-auto">
+  <div class="row mt-5">
 
-      <table class="table table-borderless">
+    <div class="col-3"></div>
 
-        <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+    <p class="col-2">商品画像</p>
 
-        <tbody>
+    <%= f.attachment_field :image,class:'col-4' %>
 
-          <tr>
+  </div>
 
-            <td>商品画像</td>
+  <div class="row mt-2">
 
-            <td><%= f.attachment_field :image %></td>
+    <div class="col-3"></div>
 
-          </tr>
+    <p class="col-2">商品名</p>
 
-          <tr>
+    <%= f.text_field :name,class:'form-control col-4',placeholder:'商品名' %>
 
-            <td>商品名</td>
+  </div>
 
-            <td><%= f.text_field :name,class:'form-control',placeholder:'商品名' %></td>
+  <div class="row mt-2">
 
-          </tr>
+    <div class="col-3"></div>
 
-          <tr>
+    <p class="col-2">商品説明</p>
 
-            <td>商品説明</td>
+    <%= f.text_area :introduction,class:'form-control col-4',size: "40x6",placeholder:'ここに説明文を記述します' %>
 
-            <td><%= f.text_area :introduction,class:'form-control',size: "40x6",placeholder:'ここに説明文を記述します' %></td>
+  </div>
 
-          </tr>
+  <div class="row mt-2">
 
-          <tr>
+    <div class="col-3"></div>
 
-            <td>ジャンル</td>
+    <p class="col-2">ジャンル</p>
 
-            <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '選択してください'},{id: "genre_id",class: 'form-control'} %></td>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '選択してください'},{id: "genre_id",class: 'form-control col-4'} %>
 
-          </tr>
+  </div>
 
-          <tr>
+  <div class="row mt-2">
 
-            <td>税抜価格</td>
+    <div class="col-3"></div>
 
-            <td><%= f.text_field :price,class:'form-control',placeholder:'1,000' %></td>
+    <p class="col-2">税抜価格</p>
 
-          </tr>
+    <%= f.text_field :price,class:'form-control col-4',placeholder:'1,000' %><p class="ml-1 mt-1">円</p>
 
-          <tr>
+  </div>
 
-            <td>販売ステータス</td>
+  <div class="row mt-2">
 
-            <td>
+    <div class="col-3"></div>
 
-            <%= f.radio_button :is_active, true %>
-            <%= f.label :is_active, "販売中" %>
+    <p class="col-2">販売ステータス</p>
 
-            <%= f.radio_button :is_active, false,class:'ml-3' %>
-            <%= f.label :is_active, "販売停止中" %>
+    <div class="col-4">
 
-            </td>
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :is_active, "販売中" %>
 
-          </tr>
-
-          <tr class="text-center">
-
-            <td><%= f.submit '変更を保存',class:'btn btn-success btn-lg' %></td>
-
-          </tr>
-
-        </tbody>
-
-        <% end %>
-
-      </table>
+      <%= f.radio_button :is_active, false,class:'ml-3' %>
+      <%= f.label :is_active, "販売停止中" %>
 
     </div>
 
   </div>
+
+  <div class="row mt-3 mb-5">
+
+    <div class="col-6"></div>
+
+    <%= f.submit '変更を保存',class:'btn btn-success col-2' %>
+
+  </div>
+
+  <% end %>
 
 </div>

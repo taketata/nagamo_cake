@@ -2,14 +2,60 @@
 
   <div class="row mt-5">
 
-    <div class="col-6 mx-auto">
+    <div class="col-10 mx-auto">
 
-      <p class="bg-light">
-        ようこそ、ながのCAKEへ!<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員ではない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-      </p>
+      <div class="bg-image">
+
+        <p class="bg-light col-6 mx-auto">
+          ようこそ、ながのCAKEへ!<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員ではない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-3">
+
+    <div class="col-2"></div>
+
+    <h4>新着商品</h4>
+
+  </div>
+
+  <div class="row my-3">
+
+    <div class="col-2"></div>
+
+    <% @items.each do |item| %>
+
+    <div class="col-2 ml-2">
+
+      <%= link_to item_path(item.id),method: :get do %>
+
+        <%= attachment_image_tag item,:image, width:'80%', format: 'jpeg' %><br>
+
+        <%= item.name %><br>
+
+      <% end %>
+
+        <p>¥<%= item.price.to_s(:delimited) %></p>
+
+    </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="row text-right mb-5">
+
+    <div class="col-12">
+
+      <%= link_to "全ての商品を見る >",items_path %>
 
     </div>
 

@@ -56,6 +56,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
+    patch 'order_details/:id' => 'order_details#update',as:'order_detail'
+
     resources:orders,only:[:show,:update]
 
     resources:customers,only:[:index,:show,:edit,:update]

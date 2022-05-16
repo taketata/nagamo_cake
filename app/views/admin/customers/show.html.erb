@@ -80,7 +80,13 @@
 
             <td>会員ステータス</td>
 
-            <td>有効</td>
+            <td>
+              <% if @customer.is_active == false %>
+                <p class="text-success">有効</p>
+              <% else %>
+                <p class="text-muted">退会</p>
+              <% end %>
+            </td>
 
           </tr>
 
@@ -93,17 +99,13 @@
 
   </div>
 
-  <div class="row text-center mb-5">
+  <div class="row mb-5">
+
+    <div class="col-3"></div>
 
     <div class="col-4">
 
       <%= link_to "編集する",edit_admin_customer_path(@customer.id),class:'btn btn-success' %>
-
-    </div>
-
-    <div class="col-3">
-
-      <%= link_to "注文履歴一覧を見る",admin_customer_path(@customer.id),class:'btn btn-primary' %>
 
     </div>
 
