@@ -10,7 +10,9 @@
 
   </div>
 
-  <div class="row mx-auto mt-3">
+  <div class="row mt-3">
+
+    <div class="col-1"></div>
 
     <div class="col-10">
 
@@ -62,12 +64,19 @@
 
         </tbody>
 
-      </tabel>
+      </table>
 
     </div>
 
-    <%= paginate @customers %>
+  </div>
+
+  <div class="row mt-1 mb-3">
+
+    <div class="col-4"></div>
+
+    <div class="col-4"><%= paginate @customers %></div>
 
   </div>
 
 </div>
+
